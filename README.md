@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Solopreneur BDR
 
-## Getting Started
+An AI-powered BDR (Business Development Representative) tool for solopreneurs to automate their outreach campaigns.
 
-First, run the development server:
+## Features
 
+- Email sequence generation with GPT-4
+- Campaign management
+- Prospect tracking
+- Meeting scheduling with Google Calendar and Microsoft Calendar
+- Analytics and reporting
+
+## Tech Stack
+
+- Frontend: Next.js 14 with TypeScript and Tailwind CSS
+- Backend: FastAPI with Python
+- Database: PostgreSQL with Prisma
+- Authentication: NextAuth.js
+- Email: SendGrid
+- Calendar Integration: Google Calendar API and Microsoft Graph API
+- AI: OpenAI GPT-4
+
+## Local Development
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/solopreneur-bdr.git
+cd solopreneur-bdr
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+# Install Node.js dependencies
+npm install
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Install Python dependencies
+pip install -r api/requirements.txt
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Set up environment variables:
+```bash
+cp .env.example .env.local
+```
+Edit `.env.local` with your credentials.
 
-## Learn More
+4. Run the development servers:
+```bash
+# Run both frontend and backend
+npm run dev
 
-To learn more about Next.js, take a look at the following resources:
+# Or run them separately
+npm run dev:frontend  # Next.js frontend
+npm run dev:backend   # FastAPI backend
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The frontend will be available at http://localhost:3000 and the backend at http://localhost:8000.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+1. Push your code to GitHub:
+```bash
+git add .
+git commit -m "Initial commit"
+git push origin main
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Connect your repository to Vercel:
+   - Go to [Vercel](https://vercel.com)
+   - Import your repository
+   - Add the following environment variables:
+     - `OPENAI_API_KEY`
+     - `GOOGLE_CLIENT_ID`
+     - `GOOGLE_CLIENT_SECRET`
+     - `NEXTAUTH_URL`
+     - `NEXTAUTH_SECRET`
+     - `DATABASE_URL`
+     - `SMTP_HOST`
+     - `SMTP_PORT`
+     - `SMTP_USER`
+     - `SMTP_PASSWORD`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. Deploy:
+   - Vercel will automatically deploy your application
+   - The frontend will be deployed to Vercel
+   - The backend API will be deployed as serverless functions
+
+## Testing the End-to-End Flow
+
+1. Connect your email:
+   - Click "Connect Email" on the dashboard
+   - Choose between Google or Microsoft
+   - Authorize the application
+
+2. Create a campaign:
+   - Click "New Campaign"
+   - Enter campaign details
+   - Add prospects
+   - Select email template
+   - Review and launch
+
+3. Monitor progress:
+   - View campaign status
+   - Track email opens and replies
+   - Schedule meetings with interested prospects
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
